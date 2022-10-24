@@ -9,6 +9,7 @@ from Orange.preprocess import Discretize, RemoveNaNColumns
 __all__ = ["NaiveBayesLearner"]
 
 
+# test 提交 朴素贝页斯模型
 class NaiveBayesLearner(Learner):
     """
     Naive Bayes classifier. Works only with discrete attributes. By default,
@@ -49,7 +50,7 @@ class NaiveBayesLearner(Learner):
         log_cont_prob = [np.log(
             (np.array(c) + 1) / (np.sum(np.array(c), axis=0)[None, :] + nclss)
             / class_prob[:, None])
-                         for c in cont]
+            for c in cont]
         class_prob[class_freq == 0] = 0
         return NaiveBayesModel(log_cont_prob, class_prob, table.domain)
 
